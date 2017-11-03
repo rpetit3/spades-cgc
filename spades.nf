@@ -39,8 +39,8 @@ process spades_assembly {
         '''
         spades.py -1 !{fq[0]} -2 !{fq[1]} --careful -t !{cpu} -o ./ !{flag}
         mkdir !{sample}
-        assemblathon-stats.pl -genome_size !{genome_size} -json -output_file !{sample}/!{sample}.contigs.json contigs.fasta
-        assemblathon-stats.pl -genome_size !{genome_size} -json -output_file !{sample}/!{sample}.scaffolds.json scaffolds.fasta
+        assemblathon_stats.pl -genome_size !{genome_size} -json -output_file !{sample}/!{sample}.contigs.json contigs.fasta
+        assemblathon_stats.pl -genome_size !{genome_size} -json -output_file !{sample}/!{sample}.scaffolds.json scaffolds.fasta
         cp contigs.fasta !{sample}/!{sample}.contigs.fasta
         cp contigs.paths !{sample}/!{sample}.contigs.paths
         cp scaffolds.fasta !{sample}/!{sample}.scaffolds.fasta
