@@ -30,7 +30,7 @@ process spades_assembly {
     publishDir outdir, mode: 'copy', overwrite: true
 
     input:
-        file fq from create_input_channel(params.fq)
+        file fq from file(params.fq)
     output:
         file '*.tar.gz'
     shell:
@@ -102,13 +102,5 @@ def check_input_params() {
     if (error) {
         log.info('See --help for more information')
         exit 1
-    }
-}
-
-def create_input_channel(input_1, input_2) {
-    if (input_2 != null) {
-        return Channel.value([file(input_1), file(input_2)])
-    } else {
-        return Channel.value(file(input_1))
     }
 }
