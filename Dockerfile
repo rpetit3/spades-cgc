@@ -4,8 +4,8 @@ MAINTAINER robbie.petit@gmail.com
 
 # SPAdes via Bioconda
 RUN conda install -y spades==3.11.1
-COPY spades.nf /usr/local/bin/spades.nf
-RUN chmod 755 /usr/local/bin/spades.nf
+COPY spades.nf spades-interleave.nf /usr/local/bin
+RUN chmod 755 /usr/local/bin/spades*.nf
 
 # Modified version of assemblathon-stats.pl
 RUN cd /tmp/ \
